@@ -47,7 +47,7 @@ paru -Syu \
 	micro \
 	mpv \
 	pkgfile \
-	python3-venv \
+	python-virtualenv \
 	reflector \
 	starship \
 	wget \
