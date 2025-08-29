@@ -40,15 +40,18 @@ paru -Syu \
 	e2fsprogs \
 	eza \
 	expac \
+	fd \
 	ffmpeg \
 	fzf \
 	github-cli \
 	hwinfo \
+	lazygit \
 	micro \
 	mpv \
 	pkgfile \
 	python-virtualenv \
 	reflector \
+	ripgrep \
 	starship \
 	wget \
 	zsh \
