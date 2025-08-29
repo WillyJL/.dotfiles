@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ "$1" != "" ] ; then
-    service="$1"
-else
-    service="$USER"
-fi
-
-journalctl --all -efu "$service"

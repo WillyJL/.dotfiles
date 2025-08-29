@@ -1,0 +1,14 @@
+{
+    "autoindent": false,
+    "backup": false,
+    "colorscheme": "atom-dark",
+    "diffgutter": true,
+    "keepautoindent": true,
+    "mkparents": true,
+    "savehistory": false,
+    "scrollbar": true,
+    "smartpaste": false,
+    "statusformatl": "$(filename) $(modified)($(line),$(col)) $(status.paste)",
+    "statusformatr": "$(opt:fileformat) | $(opt:encoding) | type: $(opt:filetype)",
+    "tabstospaces": true
+}

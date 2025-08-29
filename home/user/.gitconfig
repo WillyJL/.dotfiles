@@ -1,0 +1,69 @@
+[user]
+	name = WillyJL
+	email = me@willyjl.dev
+	signingKey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMEIm1tnOJx49NLwHHny7kW7cTWMECIVwMe3SguHMJiz me@willyjl.dev"
+[commit]
+	gpgSign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/user/.ssh/allowed_signers
+[core]
+	compression = 9
+	preloadIndex = true
+[init]
+	defaultBranch = dev
+[status]
+	branch = true
+	showStash = true
+	showUntrackedFiles = all
+    short = true
+[diff]
+	renames = copies
+[color "diff"]
+	meta = black bold
+	frag = magenta
+	context = white
+	whitespace = yellow reverse
+	old = red
+[log]
+	abbrevCommit = true
+[color "decorate"]
+	HEAD = red
+	branch = blue
+	tag = yellow
+	remoteBranch = magenta
+[tag]
+	sort = taggerdate
+[branch]
+	sort = committerdate
+[color "branch"]
+	current = magenta
+	local = default
+	remote = yellow
+	upstream = green
+	plain = blue
+[pager]
+	branch = false
+	tag = false
+[merge "ours"]
+	driver = true
+[alias]
+	pr-push = !git push $(git config --get branch.$(git symbolic-ref HEAD --short).pushRemote) $(git branch --show-current):$(git config --get branch.$(git symbolic-ref HEAD --short).merge | cut -d/ -f3-) && true
+	pr-pull = !git fetch -- \"$1\" \"refs/pull/$2/head:$1-pr-$2\" && git merge --no-edit -- \"$1-pr-$2\" && true
+	pr-checkout = !gh pr checkout --repo $(git config --get remote.$1.url | sed s/\\.git$//) --branch \"$1-pr-$2\" \"$2\" && true
+	pr-list = !gh pr list --repo $(git config --get remote.$1.url | sed s/\\.git$//) && true
+[url "https://github.com/"]
+	insteadOf = "gh:"
+[url "https://gitlab.org/"]
+	insteadOf = "gl:"
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[rerere]
+	enabled = false
+[submodule]
+	fetchJobs = 12
