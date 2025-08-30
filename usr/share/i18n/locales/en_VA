@@ -1,0 +1,150 @@
+escape_char /
+comment_char %
+
+% Custom English locale format that doesn't suck.
+% Based on en_US and modified by hand.
+% Assigned to Vatican as GNOME Settings requires a real country code.
+
+LC_IDENTIFICATION
+title      "English locale that doesn't suck"
+source     "WillyJL"
+address    ""
+contact    ""
+email      ""
+tel        ""
+fax        ""
+language   "English"
+territory  "Vatican"
+revision   "0.1"
+date       "2025-08-29"
+
+category "i18n:2012";LC_IDENTIFICATION
+category "i18n:2012";LC_CTYPE
+category "i18n:2012";LC_COLLATE
+category "i18n:2012";LC_TIME
+category "i18n:2012";LC_NUMERIC
+category "i18n:2012";LC_MONETARY
+category "i18n:2012";LC_MESSAGES
+category "i18n:2012";LC_PAPER
+category "i18n:2012";LC_NAME
+category "i18n:2012";LC_ADDRESS
+category "i18n:2012";LC_TELEPHONE
+category "i18n:2012";LC_MEASUREMENT
+END LC_IDENTIFICATION
+
+LC_CTYPE
+copy "en_US"
+END LC_CTYPE
+
+LC_COLLATE
+copy "en_US"
+END LC_COLLATE
+
+LC_MONETARY
+int_curr_symbol     "EUR "
+currency_symbol     "€"
+mon_decimal_point   "."
+mon_thousands_sep   ","
+mon_grouping        3
+positive_sign       ""
+negative_sign       "-"
+int_frac_digits     2
+frac_digits         2
+p_cs_precedes       0
+int_p_cs_precedes   0
+p_sep_by_space      1
+int_p_sep_by_space  1
+n_cs_precedes       0
+int_n_cs_precedes   0
+n_sep_by_space      1
+int_n_sep_by_space  1
+p_sign_posn         1
+int_p_sign_posn     1
+n_sign_posn         1
+int_n_sign_posn     1
+END LC_MONETARY
+
+LC_NUMERIC
+decimal_point   "."
+thousands_sep   ","
+grouping        3
+END LC_NUMERIC
+
+LC_TIME
+abday   "Sun";"Mon";"Tue";"Wed";"Thu";"Fri";"Sat"
+day     "Sunday";/
+        "Monday";/
+        "Tuesday";/
+        "Wednesday";/
+        "Thursday";/
+        "Friday";/
+        "Saturday"
+abmon   "Jan";"Feb";/
+        "Mar";"Apr";/
+        "May";"Jun";/
+        "Jul";"Aug";/
+        "Sep";"Oct";/
+        "Nov";"Dec"
+mon     "January";/
+	    "February";/
+	    "March";/
+	    "April";/
+	    "May";/
+	    "June";/
+	    "July";/
+	    "August";/
+	    "September";/
+	    "October";/
+	    "November";/
+	    "December"
+d_t_fmt         "%a %d %b %Y %T"
+d_fmt           "%d.%m.%Y"
+t_fmt           "%T"
+am_pm	        "";""
+t_fmt_ampm      ""
+week            7;19971201;4
+first_weekday   1
+first_workday   1
+cal_direction   1
+date_fmt        "%a %b %e %Y %T %Z"
+END LC_TIME
+
+LC_MESSAGES
+yesexpr     "^[+1yY]"
+noexpr      "^[-0nN]"
+yesstr      "yes"
+nostr       "no"
+END LC_MESSAGES
+
+LC_PAPER
+% A4.
+height      297
+width       210
+END LC_PAPER
+
+LC_NAME
+name_fmt    "%d%t%g%t%m%t%f"
+name_miss   "Miss."
+name_mr     "Mr."
+name_mrs    "Mrs."
+name_ms     "Ms."
+END LC_NAME
+
+LC_ADDRESS
+postal_fmt  "%f%N%a%N%d%N%b%N%h %s%N%e %r%N%T %z%N%c%N"
+lang_name   "English"
+lang_ab     "en"
+lang_term   "eng"
+lang_lib    "eng"
+END LC_ADDRESS
+
+LC_TELEPHONE
+tel_int_fmt "+%c %a%t%l"
+tel_dom_fmt "%a%t%l"
+int_select  "00"
+END LC_TELEPHONE
+
+LC_MEASUREMENT
+% Metric.
+measurement 1
+END LC_MEASUREMENT
