@@ -296,3 +296,9 @@ function precmd() {
     window_title="\033]0;$USER@$(cat /etc/hostname):$dir\007"
     echo -ne "$window_title"
 }
+
+if [ "$(cat /etc/hostname)" = "framework" ]; then
+    fastfetch --color-title blue --logo-color-2 blue --logo-padding 3 --logo-padding-top 1 --logo-type small --config custom-small
+else
+    fastfetch --color-title blue --logo-color-2 blue --logo-padding 3 --logo-padding-top 0 --logo-type builtin --config paleofetch
+fi
