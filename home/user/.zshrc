@@ -308,5 +308,5 @@ function precmd() {
 }
 
 echo
-alias fastfetch='fastfetch --color-title blue --logo-color-2 blue --logo-padding 3 --logo-padding-top 0 --logo-type builtin --config custom-large'
+alias fastfetch='fastfetch --color-title blue --logo-color-2 blue --logo-padding 3 --logo-padding-top 0 --logo-type builtin --config custom-desktop'
 fastfetch
