@@ -1,7 +1,7 @@
 {
     "autoindent": false,
     "backup": false,
-    "colorscheme": "atom-dark",
+    "colorscheme": "catppuccin-mocha",
     "diffgutter": true,
     "keepautoindent": true,
     "mkparents": true,
