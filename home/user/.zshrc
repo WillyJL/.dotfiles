@@ -300,5 +300,5 @@ function precmd() {
     echo -ne "$window_title"
 }
 
-alias fastfetch='fastfetch --color-title blue --logo-color-2 blue --logo-padding 3 --logo-padding-top 1 --logo-type small --config custom-small'
+alias fastfetch='fastfetch --color-title blue --logo-color-2 blue --logo-padding 3 --logo-padding-top 1 --logo-type small --config custom-laptop'
 fastfetch
