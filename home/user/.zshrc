@@ -76,13 +76,16 @@ if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
         case "$command" in
             "-R")
-                pacman-R "$@"
+                paru-fzR "$@"
                 ;;
             "")
                 command paru
                 ;;
-            *)
+            "-"*)
                 command paru "$command" "$@"
+                ;;
+            *)
+                paru-fzS "$command" "$@"
                 ;;
         esac
     }
