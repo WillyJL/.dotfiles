@@ -1,0 +1,23 @@
+#!/bin/bash
+set -euo pipefail
+
+fzf_args=(
+  --ansi
+  --multi
+  --preview 'echo {1} | cut -d/ -f2 | xargs paru -Qi'
+  --preview-label=' alt-p: toggle description, alt-f/F: toggle file list, page-up/down: scroll, tab: multi-select '
+  --preview-label-pos='bottom'
+  --preview-window 'down:65%:wrap'
+  --bind 'alt-p:toggle-preview'
+  --bind 'page-up:preview-up,page-down:preview-down'
+  --bind 'alt-f:change-preview:echo {1} | cut -d/ -f2 | xargs paru -Qql'
+  --bind 'alt-F:change-preview:echo {1} | cut -d/ -f2 | xargs paru -Qi'
+  --color 'pointer:red,marker:red'
+)
+
+pkg_names=$(cat <(paru -Qq --native | sed -E -e 's|^|\x1B[1;34msystem\x1B[0m/\x1B[1;37m|g') <(paru -Qq --foreign | sed -E -e 's|^|\x1B[1;36maur\x1B[0m/\x1B[1;37m|g') | fzf "${fzf_args[@]}" -q "$1")
+
+if [[ -n "$pkg_names" ]]; then
+  # Convert newline-separated selections to space-separated
+  echo "$pkg_names" | cut -d/ -f2- | tr '\n' ' ' | xargs paru -R
+fi
