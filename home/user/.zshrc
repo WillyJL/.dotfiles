@@ -104,6 +104,12 @@ if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
 fi
 
+export FZF_DEFAULT_OPTS=" \
+--color=fg:#d0d0d0,fg+:#d0d0d0,bg:#000000,bg+:#262626 \
+--color=hl:#f5802d,hl+:#f5802d,info:#af5fff,marker:#87ff00 \
+--color=prompt:#d7005f,spinner:#5fd7ff,pointer:#5fd7ff,header:#87afaf \
+--color=border:#262626,label:#aeaeae,query:#d9d9d9"
+
 # Aliases with sudo
 alias sudo='sudo '
 
