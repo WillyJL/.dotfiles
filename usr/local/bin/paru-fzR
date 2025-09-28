@@ -19,5 +19,5 @@ pkg_names=$(cat <(paru -Qq --native | sed -E -e 's|^|\x1B[1;34msystem\x1B[0m/\x1
 
 if [[ -n "$pkg_names" ]]; then
   # Convert newline-separated selections to space-separated
-  echo "$pkg_names" | cut -d/ -f2- | tr '\n' ' ' | xargs paru -R
+  paru -R $(echo "$pkg_names" | cut -d/ -f2- | tr '\n' ' ')
 fi
