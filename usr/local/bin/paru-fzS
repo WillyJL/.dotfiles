@@ -4,18 +4,18 @@ set -euo pipefail
 fzf_args=(
   --ansi
   --multi
-  --preview 'paru -Sii {1}'
+  --preview 'paru -Sii {1} | bat -p -f -l yaml'
   --preview-label=' alt-p: toggle description, alt-b/B: toggle PKGBUILD, page-up/down: scroll, tab: multi-select '
   --preview-label-pos='bottom'
   --preview-window 'down:65%:wrap'
   --bind 'alt-p:toggle-preview'
   --bind 'page-up:preview-up,page-down:preview-down'
-  --bind 'alt-b:change-preview:paru -Gp {1} | tail -n +5'
-  --bind 'alt-B:change-preview:paru -Sii {1}'
+  --bind 'alt-b:change-preview:paru -Gp {1} | tail -n +5 | bat -p -f -l bash'
+  --bind 'alt-B:change-preview:paru -Sii {1} | bat -p -f -l yaml'
   --color 'pointer:green,marker:green'
 )
 
-pkg_names=$(paru -Sl --color=always | sed -E -e 's|^\x1B\[1;35m([^ ]+) |\x1B[1;34m\1\x1B[0m/|g' -e 's|^\x1B\[1;34m(chaotic-)?aur|\x1B[1;36m\1aur|g' | fzf "${fzf_args[@]}" -q "$1")
+pkg_names=$(paru -Sl --color=always | sed -E -e 's|^\x1B\[1;35m([^ ]+) |\x1B[1;34m\1\x1B[0m/|g' -e 's|^\x1B\[1;34m(chaotic-)?aur|\x1B[1;36m\1aur|g' | fzf "${fzf_args[@]}" -q "$(echo "$@")")
 
 if [[ -n "$pkg_names" ]]; then
   # Convert newline-separated selections to space-separated
