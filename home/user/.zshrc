@@ -104,12 +104,6 @@ if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
 fi
 
-export FZF_DEFAULT_OPTS=" \
---color=fg:#d0d0d0,fg+:#d0d0d0,bg:#000000,bg+:#262626 \
---color=hl:#f5802d,hl+:#f5802d,info:#af5fff,marker:#87ff00 \
---color=prompt:#d7005f,spinner:#5fd7ff,pointer:#5fd7ff,header:#87afaf \
---color=border:#262626,label:#aeaeae,query:#d9d9d9"
-
 # Aliases with sudo
 alias sudo='sudo '
 
@@ -125,6 +119,9 @@ SAVEHIST=10000
 # Starship prompt + matching sudo prompt
 eval "$(starship init zsh)"
 export SUDO_PROMPT="$(echo -e "\e[0m\n \e[0;31m╭─\e[1;31mSUDO\e[0m: \e[1;33mpassword\e[0m for \e[1;31m$USER\e[0m@\e[31m$(cat /etc/hostname)\e[0m\n \e[0;31m╰─\e[1;31mλ\e[0m ")"
+
+# Theming
+export BAT_THEME="ansi"
 
 # Options
 setopt correct                                                  # Auto correct mistakes
@@ -305,6 +302,16 @@ function precmd() {
     window_title="\033]0;$USER@$(cat /etc/hostname):$dir\007"
     echo -ne "$window_title"
 }
+
+###################
+# DEVICE SPECIFIC #
+###################
+
+export FZF_DEFAULT_OPTS=" \
+--color=fg:#d0d0d0,fg+:#d0d0d0,bg:#000000,bg+:#262626 \
+--color=hl:#f5802d,hl+:#f5802d,info:#af5fff,marker:#87ff00 \
+--color=prompt:#d7005f,spinner:#5fd7ff,pointer:#5fd7ff,header:#87afaf \
+--color=border:#262626,label:#aeaeae,query:#d9d9d9"
 
 alias fastfetch='fastfetch --color-title blue --logo-color-2 blue --logo-padding 3 --logo-padding-top 1 --logo-type small --config custom-laptop'
 fastfetch
