@@ -120,6 +120,9 @@ SAVEHIST=10000
 eval "$(starship init zsh)"
 export SUDO_PROMPT="$(echo -e "\e[0m\n \e[0;31m╭─\e[1;31mSUDO\e[0m: \e[1;33mpassword\e[0m for \e[1;31m$USER\e[0m@\e[31m$(cat /etc/hostname)\e[0m\n \e[0;31m╰─\e[1;31mλ\e[0m ")"
 
+# Theming
+export BAT_THEME="ansi"
+
 # Options
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
@@ -299,3 +302,7 @@ function precmd() {
     window_title="\033]0;$USER@$(cat /etc/hostname):$dir\007"
     echo -ne "$window_title"
 }
+
+###################
+# DEVICE SPECIFIC #
+###################
