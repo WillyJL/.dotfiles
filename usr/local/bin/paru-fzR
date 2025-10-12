@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -eu
 
 fzf_args=(
   --ansi
@@ -15,9 +15,12 @@ fzf_args=(
   --color 'pointer:red,marker:red'
 )
 
-pkg_names=$(cat <(paru -Qq --native | sed -E -e 's|^|\x1B[1;34msystem\x1B[0m/\x1B[1;37m|g') <(paru -Qq --foreign | sed -E -e 's|^|\x1B[1;36maur\x1B[0m/\x1B[1;37m|g') | fzf "${fzf_args[@]}" -q "$(echo "$@")")
+pkgs=$(cat <(paru -Qq --native | sed -E -e 's|^|\x1B[1;34msystem\x1B[0m/\x1B[1;37m|g') <(paru -Qq --foreign | sed -E -e 's|^|\x1B[1;36maur\x1B[0m/\x1B[1;37m|g') | fzf "${fzf_args[@]}" -q "$(echo "$@")")
 
-if [[ -n "$pkg_names" ]]; then
-  # Convert newline-separated selections to space-separated
-  paru -R $(echo "$pkg_names" | cut -d/ -f2- | tr '\n' ' ')
+if [[ -n "$pkgs" ]]; then
+    # Convert newline-separated selections to space-separated
+    pkgs=$(echo "$pkgs" | cut -d/ -f2- | tr '\n' ' ')
+    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m /bin/paru -R $pkgs"
+    echo
+    /bin/paru -R $pkgs
 fi
