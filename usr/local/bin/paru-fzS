@@ -15,9 +15,9 @@ fzf_args=(
   --color 'pointer:green,marker:green'
 )
 
-paru_fifo="$(mktemp -u paru-fzS-fifo-XXXXXXXXXXXX)"
+paru_fifo="$(mktemp -u /tmp/paru-fzS-fifo-XXXXXXXXXXXX)"
 mkfifo $paru_fifo
-sed_fifo="$(mktemp -u paru-fzS-fifo-XXXXXXXXXXXX)"
+sed_fifo="$(mktemp -u /tmp/paru-fzS-fifo-XXXXXXXXXXXX)"
 mkfifo $sed_fifo
 
 paru -Sl --color=always >$paru_fifo &
