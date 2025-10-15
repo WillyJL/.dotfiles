@@ -4,8 +4,9 @@ set -e
 # Copy dotfiles
 echo "Copying dotfiles..."
 cp -rT "$PWD/home/user" "$HOME"
-sudo cp -rT "$PWD/usr/local" "/usr/local"
-sudo fc-cache
+pkexec cp -rT "$PWD/etc" "/etc"
+pkexec cp -rT "$PWD/usr/local" "/usr/local"
+pkexec fc-cache
 
 # Check shell
 shell="$(cat /proc/$PPID/cmdline | cut -d '' -f 1)"
