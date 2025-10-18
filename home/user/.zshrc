@@ -68,26 +68,19 @@ if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
     # Interactive paru -R
     paru() {
-        local command
-        command="${1:-}"
-        if [ "$#" -gt 0 ]; then
-            shift
+        if [ "$#" = 1 ]; then
+            case "$1" in
+                "-R")
+                    paru-fzR
+                    ;;
+                "-S")
+                    paru-fzS
+                    ;;
+            esac
+        else
+            command paru "$@"
         fi
 
-        case "$command" in
-            "-R")
-                paru-fzR "$@"
-                ;;
-            "")
-                command paru
-                ;;
-            "-"*)
-                command paru "$command" "$@"
-                ;;
-            *)
-                paru-fzS "$command" "$@"
-                ;;
-        esac
     }
 
     # Delete pacman database lock
@@ -104,8 +97,8 @@ if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
 fi
 
-# Aliases with sudo
-alias sudo='sudo '
+# Aliases with sudo, and get gui prompt with pkexec
+alias sudo='pkexec '
 
 ##########
 # CONFIG #

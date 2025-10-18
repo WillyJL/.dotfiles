@@ -15,12 +15,12 @@ fzf_args=(
   --color 'pointer:red,marker:red'
 )
 
-pkgs=$(cat <(paru -Qq --native | sed -E -e 's|^|\x1B[1;34msystem\x1B[0m/\x1B[1;37m|g') <(paru -Qq --foreign | sed -E -e 's|^|\x1B[1;36maur\x1B[0m/\x1B[1;37m|g') | fzf "${fzf_args[@]}" -q "$(echo "$@")")
+pkgs=$(cat <(paru -Qq --native | sed -E -e 's|^|\x1B[1;34msystem\x1B[0m/\x1B[1;37m|g') <(paru -Qq --foreign | sed -E -e 's|^|\x1B[1;36maur\x1B[0m/\x1B[1;37m|g') | fzf "${fzf_args[@]}")
 
 if [[ -n "$pkgs" ]]; then
     # Convert newline-separated selections to space-separated
     pkgs=$(echo "$pkgs" | cut -d/ -f2- | tr '\n' ' ')
-    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m /bin/paru -R $pkgs"
+    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m paru -R $pkgs"
     echo
-    /bin/paru -R $pkgs
+    paru -R $pkgs
 fi
