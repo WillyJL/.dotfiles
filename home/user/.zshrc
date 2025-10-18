@@ -97,8 +97,8 @@ if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
 fi
 
-# Aliases with sudo
-alias sudo='sudo '
+# Aliases with sudo, and get gui prompt with pkexec
+alias sudo='pkexec '
 
 ##########
 # CONFIG #
