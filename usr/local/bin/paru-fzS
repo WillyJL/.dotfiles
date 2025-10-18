@@ -26,7 +26,7 @@ paru_pid=$!
 sed -E -e 's|^\x1B\[1;35m([^ ]+) |\x1B[1;34m\1\x1B[0m/|g' -e 's|^\x1B\[1;34m(chaotic-)?aur|\x1B[1;36m\1aur|g' <$paru_fifo >$sed_fifo &
 sed_pid=$!
 
-pkgs=$(fzf "${fzf_args[@]}" -q "$(echo "$@")" <$sed_fifo | cut -d' ' -f1)
+pkgs=$(fzf "${fzf_args[@]}" <$sed_fifo | cut -d' ' -f1)
 
 kill $sed_pid 2> /dev/null || true
 kill $paru_pid 2> /dev/null || true
@@ -44,15 +44,15 @@ for pkg in $pkgs; do
 done
 
 if [ -v sys_pkgs ]; then
-    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m pkexec /bin/pacman -S $sys_pkgs"
+    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m pkexec pacman -S $sys_pkgs"
 fi
 if [ -v aur_pkgs ]; then
-    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m /bin/paru -S $aur_pkgs"
+    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m paru -S $aur_pkgs"
 fi
 echo
 if [ -v sys_pkgs ]; then
-    pkexec /bin/pacman -S $sys_pkgs
+    pkexec pacman -S $sys_pkgs
 fi
 if [ -v aur_pkgs ]; then
-    /bin/paru -S $aur_pkgs
+    paru -S $aur_pkgs
 fi
