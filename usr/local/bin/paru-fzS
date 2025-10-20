@@ -44,15 +44,15 @@ for pkg in $pkgs; do
 done
 
 if [ -v sys_pkgs ]; then
-    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m pkexec pacman -S $sys_pkgs"
+    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m pkexec pacman -S ${sys_pkgs[@]}"
 fi
 if [ -v aur_pkgs ]; then
-    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m paru -S $aur_pkgs"
+    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m paru -S ${aur_pkgs[@]}"
 fi
 echo
 if [ -v sys_pkgs ]; then
-    pkexec pacman -S $sys_pkgs
+    pkexec pacman -S ${sys_pkgs[@]}
 fi
 if [ -v aur_pkgs ]; then
-    paru -S $aur_pkgs
+    paru -S ${aur_pkgs[@]}
 fi
