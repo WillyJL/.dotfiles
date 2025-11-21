@@ -3,8 +3,6 @@
 	[
 		"Vintage",
 	],
-	"theme": "Adaptive.sublime-theme",
-	"color_scheme": "Brackets Dark.sublime-color-scheme",
 	"word_wrap": false,
 	"font_face": "JetBrainsMono Nerd Font Mono +ss02 -calt",
 	"font_size": 11,
