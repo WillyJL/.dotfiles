@@ -1,4 +1,6 @@
 {
+	"theme": "Adaptive.sublime-theme",
+	"color_scheme": "Brackets Dark.sublime-color-scheme",
 	"ignored_packages":
 	[
 		"Vintage",
