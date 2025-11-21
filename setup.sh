@@ -9,21 +9,17 @@ fi
 # Install chaotic-aur
 if [ ! -e /etc/pacman.d/chaotic-mirrorlist ] ; then
 	echo "Installing chaotic-aur..."
-	sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-	sudo pacman-key --lsign-key 3056513887B78AEB
-	sudo pacman -U \
+	pkexec pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+	pkexec pacman-key --lsign-key 3056513887B78AEB
+	pkexec pacman -U \
 		'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' \
 		'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-	echo """
-[chaotic-aur]
-Include = /etc/pacman.d/chaotic-mirrorlist
-""" | sudo tee -a /etc/pacman.conf > /dev/null
 fi
 
 # Install paru
 if ! which paru &> /dev/null ; then
 	echo "Installing paru..."
-	sudo pacman -S --needed git base-devel
+	pkexec pacman -S --needed git base-devel
 	tmp="$(mktemp -d)"
 	git clone https://aur.archlinux.org/paru.git "$tmp"
 	pushd "$tmp"
