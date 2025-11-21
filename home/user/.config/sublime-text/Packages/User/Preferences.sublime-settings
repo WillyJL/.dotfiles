@@ -1,4 +1,6 @@
 {
+	"color_scheme": "Catppuccin Mocha.sublime-color-scheme",
+	"theme": "Adaptive.sublime-theme",
 	"ignored_packages":
 	[
 		"Vintage",
