@@ -66,19 +66,22 @@ alias pyreq="python -m pip install -U -r requirements.txt"
 # Arch linux stuff
 if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
-    # Interactive paru -R
-    paru() {
+    # Interactive yay -R
+    yay() {
         if [ "$#" = 1 ]; then
             case "$1" in
                 "-R")
-                    paru-fzR
+                    yay-fzR
                     ;;
                 "-S")
-                    paru-fzS
+                    yay-fzS
+                    ;;
+                *)
+                    command yay "$@"
                     ;;
             esac
         else
-            command paru "$@"
+            command yay "$@"
         fi
 
     }
