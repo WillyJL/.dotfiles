@@ -16,12 +16,12 @@ if [ ! -e /etc/pacman.d/chaotic-mirrorlist ] ; then
 		'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 fi
 
-# Install paru
-if ! which paru &> /dev/null ; then
-	echo "Installing paru..."
+# Install yay
+if ! which yay &> /dev/null ; then
+	echo "Installing yay..."
 	pkexec pacman -S --needed git base-devel
 	tmp="$(mktemp -d)"
-	git clone https://aur.archlinux.org/paru.git "$tmp"
+	git clone https://aur.archlinux.org/yay.git "$tmp"
 	pushd "$tmp"
 	makepkg -si
 	popd
@@ -30,7 +30,7 @@ fi
 
 # Install packages
 echo "Installing packages..."
-paru -Syu \
+yay -Syu \
 	btop \
 	curl \
 	e2fsprogs \
