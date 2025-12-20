@@ -4,34 +4,34 @@ set -eu
 fzf_args=(
   --ansi
   --multi
-  --preview 'paru -Sii {1} | bat -p -f -l yaml'
+  --preview 'yay -Sii {1} | bat -p -f -l yaml'
   --preview-label=' alt-p: toggle description, alt-b/B: toggle PKGBUILD, page-up/down: scroll, tab: multi-select '
   --preview-label-pos='bottom'
   --preview-window 'down:65%:wrap'
   --bind 'alt-p:toggle-preview'
   --bind 'page-up:preview-up,page-down:preview-down'
-  --bind 'alt-b:change-preview:paru -Gp {1} | tail -n +5 | bat -p -f -l bash'
-  --bind 'alt-B:change-preview:paru -Sii {1} | bat -p -f -l yaml'
+  --bind 'alt-b:change-preview:yay -Gp {1} | tail -n +5 | bat -p -f -l bash'
+  --bind 'alt-B:change-preview:yay -Sii {1} | bat -p -f -l yaml'
   --color 'pointer:green,marker:green'
 )
 
-paru_fifo="$(mktemp -u /tmp/paru-fzS-fifo-XXXXXXXXXXXX)"
-mkfifo $paru_fifo
-sed_fifo="$(mktemp -u /tmp/paru-fzS-fifo-XXXXXXXXXXXX)"
+yay_fifo="$(mktemp -u /tmp/yay-fzS-fifo-XXXXXXXXXXXX)"
+mkfifo $yay_fifo
+sed_fifo="$(mktemp -u /tmp/yay-fzS-fifo-XXXXXXXXXXXX)"
 mkfifo $sed_fifo
 
-paru -Sl --color=always >$paru_fifo &
-paru_pid=$!
+yay -Sl --color=always >$yay_fifo &
+yay_pid=$!
 
-sed -E -e 's|^\x1B\[1;35m([^ ]+) |\x1B[1;34m\1\x1B[0m/|g' -e 's|^\x1B\[1;34m(chaotic-)?aur|\x1B[1;36m\1aur|g' <$paru_fifo >$sed_fifo &
+sed -E -e 's|^\x1B\[35m|\x1B[1;35m|g' -e 's|^\x1B\[1;35m([^ ]+) |\x1B[1;34m\1\x1B[0m/|g' -e 's|^\x1B\[1;34m(chaotic-)?aur|\x1B[1;36m\1aur|g' <$yay_fifo >$sed_fifo &
 sed_pid=$!
 
 pkgs=$(fzf "${fzf_args[@]}" <$sed_fifo | cut -d' ' -f1)
 
 kill $sed_pid 2> /dev/null || true
-kill $paru_pid 2> /dev/null || true
+kill $yay_pid 2> /dev/null || true
 rm $sed_fifo
-rm $paru_fifo
+rm $yay_fifo
 
 sys_pkgs=()
 aur_pkgs=()
@@ -47,12 +47,12 @@ if [ -v sys_pkgs ]; then
     echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m pkexec pacman -S ${sys_pkgs[@]}"
 fi
 if [ -v aur_pkgs ]; then
-    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m paru -S ${aur_pkgs[@]}"
+    echo -e "\x1B[1;34m::\x1B[1;37m Running:\x1B[0m yay -S ${aur_pkgs[@]}"
 fi
 echo
 if [ -v sys_pkgs ]; then
     pkexec pacman -S ${sys_pkgs[@]}
 fi
 if [ -v aur_pkgs ]; then
-    paru -S ${aur_pkgs[@]}
+    yay -S ${aur_pkgs[@]}
 fi
