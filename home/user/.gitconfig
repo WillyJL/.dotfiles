@@ -67,3 +67,5 @@
 	enabled = false
 [submodule]
 	fetchJobs = 12
+[push]
+	default = upstream
