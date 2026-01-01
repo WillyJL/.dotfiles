@@ -58,8 +58,13 @@ alias jctl="journalctl -p 3 -xb"
 # Python stuff
 alias py="python3"
 function pyvenv {
-    [ ! -d "venv" ] && python -m venv venv
-    source venv/bin/activate
+    [ ! -d "venv" ] && [ ! -d ".venv" ] && python -m venv venv
+    if [ -d "venv" ]; then
+        source venv/bin/activate
+    fi
+    if [ -d ".venv" ]; then
+        source .venv/bin/activate
+    fi
 }
 alias pyreq="python -m pip install -U -r requirements.txt"
 
