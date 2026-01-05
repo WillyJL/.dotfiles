@@ -8,107 +8,108 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "outline_panel": {
-    "git_status": true
+    "git_status": true,
   },
   "show_wrap_guides": false,
   "auto_indent_on_paste": false,
   "cursor_shape": "bar",
   "rounded_selection": false,
   "buffer_line_height": {
-    "custom": 1.4
+    "custom": 1.4,
   },
   "icon_theme": "Zed (Default)",
   "use_system_prompts": false,
   "use_system_path_prompts": false,
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
   "git": {
     "path_style": "file_path_first",
     "hunk_style": "staged_hollow",
     "inline_blame": {
-      "show_commit_summary": true
-    }
+      "show_commit_summary": true,
+    },
   },
   "buffer_font_weight": 300.0,
   "buffer_font_family": "JetBrainsMono Nerd Font Mono +ss02 -calt",
   "toolbar": {
     "code_actions": false,
     "quick_actions": false,
-    "breadcrumbs": false
+    "breadcrumbs": false,
   },
   "languages": {
     "Markdown": {
-      "format_on_save": "off"
-    }
+      "format_on_save": "off",
+    },
   },
   "format_on_save": "on",
   "terminal": {
     "blinking": "terminal_controlled",
     "toolbar": {
-      "breadcrumbs": false
+      "breadcrumbs": false,
     },
     "font_weight": 300.0,
     "font_family": "JetBrainsMono Nerd Font Mono +ss02 -calt",
     "font_size": 13.5,
     "shell": {
-      "program": "zsh"
-    }
+      "program": "zsh",
+    },
   },
   "project_panel": {
     "git_status": true,
     "auto_open": {
       "on_drop": false,
-      "on_paste": false
+      "on_paste": false,
     },
     "hide_root": false,
     "entry_spacing": "standard",
-    "default_width": 300.0
+    "default_width": 300.0,
   },
   "zoomed_padding": false,
   "active_pane_modifiers": {
     "border_size": 0.0,
-    "inactive_opacity": 1.0
+    "inactive_opacity": 1.0,
   },
   "bottom_dock_layout": "contained",
   "tabs": {
     "show_diagnostics": "all",
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
   },
   "title_bar": {
     "show_menus": false,
-    "show_branch_icon": true
+    "show_branch_icon": true,
   },
   "show_whitespaces": "all",
   "indent_guides": {
     "background_coloring": "indent_aware",
     "coloring": "indent_aware",
     "active_line_width": 1,
-    "line_width": 1
+    "line_width": 1,
   },
   "soft_wrap": "none",
   "git_panel": {
+    "tree_view": true,
     "collapse_untracked_diff": false,
     "status_style": "icon",
     "button": true,
-    "sort_by_path": false
+    "sort_by_path": false,
   },
   "minimap": {
     "display_in": "all_editors",
-    "show": "never"
+    "show": "never",
   },
   "gutter": {
-    "runnables": false
+    "runnables": false,
   },
   "sticky_scroll": {
-    "enabled": true
+    "enabled": true,
   },
   "disable_ai": true,
   "auto_update": false,
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "ui_font_size": 16,
   "buffer_font_size": 13.5,
@@ -122,7 +123,7 @@
         "#8a03b7",
         "#013aad",
         "#b50158",
-        "#8a03b7"
+        "#8a03b7",
       ],
       "editor.document_highlight.read_background": "#6666",
       "modified": "#49f",
@@ -159,45 +160,45 @@
       "terminal.bright_foreground": "#ddd",
       "syntax": {
         "comment": {
-          "color": "#555"
+          "color": "#555",
         },
         "type": {
-          "color": "#c9e"
+          "color": "#c9e",
         },
         "function": {
-          "color": "#6bf"
+          "color": "#6bf",
         },
         "variable": {
-          "color": "#f7a"
+          "color": "#f7a",
         },
         "operator": {
-          "color": "#555"
+          "color": "#555",
         },
         "punctuation.delimiter": {
-          "color": "#555"
+          "color": "#555",
         },
         "keyword": {
-          "color": "#fd6"
+          "color": "#fd6",
         },
         "number": {
-          "color": "#6de"
+          "color": "#6de",
         },
         "boolean": {
-          "color": "#6de"
+          "color": "#6de",
         },
         "constant": {
-          "color": "#c9e"
+          "color": "#c9e",
         },
         "string": {
-          "color": "#4db"
+          "color": "#4db",
         },
         "label": {
-          "color": "#ccc"
+          "color": "#ccc",
         },
         "property": {
-          "color": "#f86"
-        }
-      }
+          "color": "#f86",
+        },
+      },
     },
     "Catppuccin Mocha": {
       "accents": [
@@ -206,8 +207,8 @@
         "#8a03b7",
         "#013aad",
         "#b50158",
-        "#8a03b7"
-      ]
-    }
-  }
+        "#8a03b7",
+      ],
+    },
+  },
 }
