@@ -105,9 +105,6 @@ if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
 fi
 
-# Aliases with sudo, and get gui prompt with pkexec
-alias sudo='pkexec '
-
 ##########
 # CONFIG #
 ##########
@@ -153,6 +150,13 @@ zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zcache
+
+# Completions and aliases with sudo, and get gui prompt with pkexec
+pkexec() {
+    command pkexec --keep-cwd "$@"
+}
+alias sudo='pkexec '
+compdef _sudo pkexec
 
 # Automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
