@@ -41,6 +41,14 @@
     "Markdown": {
       "format_on_save": "off",
     },
+    "JSON": {
+      "tab_size": 4,
+      "formatter": "prettier",
+    },
+    "JSONC": {
+      "tab_size": 4,
+      "formatter": "prettier",
+    },
   },
   "format_on_save": "on",
   "terminal": {
