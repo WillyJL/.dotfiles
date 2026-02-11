@@ -119,6 +119,23 @@
         "diagnostics": false,
         "metrics": false,
     },
+    "lsp": {
+        "discord_presence": {
+            "initialization_options": {
+                "state": "{relative_file_path}:{line_number}",
+                "details": "In {workspace} ({git_branch})",
+                "large_text": "Editing a {language:u} file",
+                "idle": {
+                    "timeout": 300,
+                    "action": "change_activity",
+                    "state": "Idling...",
+                    "details": "In {workspace} ({git_branch})",
+                    "small_text": "zZz",
+                },
+                "git_integration": true,
+            },
+        },
+    },
     "ui_font_size": 16,
     "buffer_font_size": 13.5,
     "theme": "Vercel Dark",
