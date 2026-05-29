@@ -7,7 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "cli_default_open_behavior": "existing_window",
+    "diff_view_style": "split",
+    "agent": {
+        "dock": "right",
+        "favorite_models": [],
+        "model_parameters": [],
+    },
     "outline_panel": {
+        "dock": "left",
         "git_status": true,
     },
     "show_wrap_guides": false,
@@ -21,6 +29,7 @@
     "use_system_prompts": false,
     "use_system_path_prompts": false,
     "collaboration_panel": {
+        "dock": "left",
         "button": false,
     },
     "git": {
@@ -49,6 +58,9 @@
             "tab_size": 4,
             "formatter": "prettier",
         },
+        "CMake": {
+            "tab_size": 4,
+        },
     },
     "format_on_save": "on",
     "terminal": {
@@ -64,6 +76,7 @@
         },
     },
     "project_panel": {
+        "dock": "left",
         "git_status": true,
         "auto_open": {
             "on_drop": false,
@@ -85,8 +98,8 @@
         "git_status": true,
     },
     "title_bar": {
+        "show_branch_status_icon": true,
         "show_menus": false,
-        "show_branch_icon": true,
     },
     "show_whitespaces": "all",
     "indent_guides": {
@@ -97,6 +110,7 @@
     },
     "soft_wrap": "none",
     "git_panel": {
+        "dock": "left",
         "tree_view": true,
         "collapse_untracked_diff": false,
         "status_style": "icon",
@@ -108,6 +122,7 @@
         "show": "never",
     },
     "gutter": {
+        "line_numbers": true,
         "runnables": false,
     },
     "sticky_scroll": {
@@ -132,7 +147,7 @@
                     "details": "In {workspace} ({git_branch})",
                     "small_text": "zZz",
                 },
-                "git_integration": true,
+                "git_integration": false,
             },
         },
     },
