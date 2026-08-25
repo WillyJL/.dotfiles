@@ -11,9 +11,9 @@ export PATH
 ###########
 
 # Replace ls with exa
-alias ls='exa -aalgF --git --color=always --group-directories-first --icons' # preferred listing
-alias lt='exa -aT --color=always --group-directories-first --icons'          # tree listing
-alias l.="exa -a | egrep '^\.'"                                              # show only dotfiles
+alias ls='exa -aalgF --git --color=always --group-directories-first --icons always' # preferred listing
+alias lt='exa -aT --color=always --group-directories-first --icons always'          # tree listing
+alias l.="exa -a | egrep '^\.'"                                                     # show only dotfiles
 
 # Custom git overrides
 git() {
