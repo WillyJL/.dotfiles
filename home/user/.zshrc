@@ -68,6 +68,9 @@ function pyvenv {
 }
 alias pyreq="python -m pip install -U -r requirements.txt"
 
+# Tio connect newest serial device
+alias tio-last='tio $(/bin/ls -t /dev/serial/by-id/*)'
+
 # Arch linux stuff
 if [ "$(grep -e '^ID=' /etc/os-release | cut -d '=' -f 2)" = "arch" ] ; then
 
