@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "expand_excerpt_lines": 20,
+    "excerpt_context_lines": 10,
     "agent_servers": {
         "claude-acp": {
             "type": "registry"
@@ -121,6 +123,7 @@
     },
     "soft_wrap": "none",
     "git_panel": {
+        "group_by": "staging",
         "dock": "left",
         "tree_view": true,
         "collapse_untracked_diff": false,
