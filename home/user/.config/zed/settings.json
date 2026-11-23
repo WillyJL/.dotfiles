@@ -7,9 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "agent_servers": {
+        "claude-acp": {
+            "type": "registry"
+        }
+    },
     "cli_default_open_behavior": "existing_window",
     "diff_view_style": "split",
     "agent": {
+        "show_turn_stats": true,
+        "use_modifier_to_send": false,
+        "threads_sidebar": {
+            "auto_open": false,
+            "position": "right"
+        },
         "dock": "right",
         "favorite_models": [],
         "model_parameters": [],
@@ -128,7 +139,7 @@
     "sticky_scroll": {
         "enabled": true,
     },
-    "disable_ai": true,
+    "disable_ai": false,
     "auto_update": false,
     "telemetry": {
         "diagnostics": false,
